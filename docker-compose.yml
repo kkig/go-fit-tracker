@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  go-fit-tracker:
+    build:
+      context: .
+    container_name: rest-server
+    # hostname: rest-server
+    ports:
+      - 80:9090
+    deploy:
+      restart_policy:
+        condition: on-failure
