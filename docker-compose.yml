@@ -2,12 +2,15 @@ version: '3.8'
 
 services:
   go-fit-tracker:
+    env_file: .env
     build:
       context: .
     container_name: rest-server
-    # hostname: rest-server
+    hostname: rest-server
     ports:
-      - 80:9090
+      - 80:8080
+    environment:
+      - HTTP_PORT=${HTTP_PORT}
     deploy:
       restart_policy:
         condition: on-failure
